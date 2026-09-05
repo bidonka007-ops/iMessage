@@ -100,8 +100,8 @@ input {
 }
 
 .avatar-ring {
-  width: clamp(120px, 33vw, 182px);
-  height: clamp(120px, 33vw, 182px);
+  width: clamp(62px, 18vw, 96px);
+  height: clamp(62px, 18vw, 96px);
   border-radius: 50%;
   background: linear-gradient(135deg, #a8b8d1 0%, #8ea1c8 100%);
   box-shadow: none;
@@ -115,8 +115,8 @@ input {
 }
 
 .avatar-image {
-  width: 108%;
-  height: 108%;
+  width: 106%;
+  height: 106%;
   display: block;
   object-fit: cover;
   object-position: center;
@@ -125,19 +125,19 @@ input {
 
 .balance-badge {
   position: absolute;
-  bottom: -15px;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  min-width: 96px;
+  min-width: 72px;
   background: rgba(255, 255, 255, 0.84);
-  border-radius: 14px;
+  border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
   text-align: center;
   font-weight: 700;
-  font-size: clamp(14px, 2.8vw, 24px);
+  font-size: clamp(12px, 2.2vw, 18px);
   line-height: 1.1;
   color: #1f2127;
-  padding: 8px 18px 10px;
+  padding: 6px 12px 8px;
 }
 
 .messages {

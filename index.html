@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>iMessage bus ticket</title>
+    <title>iMessage</title>
     <link rel="stylesheet" href="style.css" />
 
     <!-- Связь с манифестом PWA -->
@@ -13,7 +13,7 @@
     <!-- Специальные теги для установки на iOS (iPhone) -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Ticket">
+    <meta name="apple-mobile-web-app-title" content="iMessage">
     <link rel="apple-touch-icon" href="icon-192.png">
   </head>
   <body>
@@ -36,7 +36,7 @@
           <button class="add-btn" type="button" aria-label="Добавить">+</button>
 
           <form id="message-form" class="composer-form" autocomplete="off">
-            <label class="sr-only" for="board-input">Номер транспорта</label>
+            <label class="sr-only" for="board-input">Board number</label>
             <input
               id="board-input"
               name="boardNumber"
@@ -44,8 +44,8 @@
               inputmode="numeric"
               maxlength="6"
               pattern="[0-9]*"
-              placeholder="Текстовое сообщение • SMS"
-              aria-label="Введите номер транспорта"
+              placeholder="Text Message • SMS"
+              aria-label="Enter board number"
             />
             <button class="send-btn" type="submit" aria-label="Отправить">➤</button>
           </form>

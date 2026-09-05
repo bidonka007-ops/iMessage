@@ -9,28 +9,32 @@
   --composer-border: rgba(0, 0, 0, 0.02);
   --placeholder: #7d8088;
   --icon: #1a1a1d;
-  --avatar-start: #9eaec8;
-  --avatar-end: #7d8bb2;
+  --phone-width: 414px;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--bg-app);
   color: var(--header-text);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
-  align-items: stretch;
+  align-items: flex-start;
+  overflow-x: hidden;
 }
 
 button,
@@ -40,18 +44,19 @@ input {
 
 .app-shell {
   width: 100%;
-  height: 100vh;
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   background: var(--bg-app);
 }
 
 .phone-screen {
-  width: 100%;
-  max-width: 430px;
-  min-height: 100vh;
-  background: var(--bg-screen);
   position: relative;
+  width: min(100vw, var(--phone-width));
+  max-width: var(--phone-width);
+  min-height: 100dvh;
+  background: var(--bg-screen);
   display: flex;
   flex-direction: column;
 }
@@ -62,7 +67,7 @@ input {
   align-items: flex-start;
   justify-content: center;
   padding: 8px 20px 0;
-  min-height: 215px;
+  min-height: 210px;
   background: var(--bg-screen);
 }
 
@@ -70,13 +75,13 @@ input {
   position: absolute;
   left: 16px;
   top: 12px;
-  width: 62px;
-  height: 62px;
+  width: 56px;
+  height: 56px;
   border: none;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 50%;
   color: #18191d;
-  font-size: 44px;
+  font-size: 42px;
   line-height: 1;
   display: flex;
   align-items: center;
@@ -91,12 +96,12 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .avatar-ring {
-  width: 50px;
-  height: 50px;
+  width: clamp(120px, 33vw, 182px);
+  height: clamp(120px, 33vw, 182px);
   border-radius: 50%;
   background: linear-gradient(135deg, #a8b8d1 0%, #8ea1c8 100%);
   box-shadow: none;
@@ -105,11 +110,12 @@ input {
   justify-content: center;
   overflow: hidden;
   position: relative;
+  flex-shrink: 0;
 }
 
 .avatar-image {
-  width: 104%;
-  height: 122%;
+  width: 100%;
+  height: 100%;
   display: block;
   object-fit: cover;
   object-position: center;
@@ -118,17 +124,17 @@ input {
 
 .balance-badge {
   position: absolute;
-  bottom: -24px;
+  bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
-  min-width: 50px;
+  min-width: 96px;
   background: rgba(255, 255, 255, 0.84);
-  border-radius: 10px;
+  border-radius: 14px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
   text-align: center;
   font-weight: 700;
-  font-size: 9px;
-  line-height: 1;
+  font-size: clamp(14px, 2.8vw, 24px);
+  line-height: 1.1;
   color: #1f2127;
   padding: 8px 18px 10px;
 }
@@ -136,16 +142,12 @@ input {
 .messages {
   flex: 1;
   overflow-y: auto;
-  padding: 32px 18px 18px;
+  padding: 26px 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   background: var(--bg-screen);
   scroll-behavior: smooth;
-}
-
-.messages:empty {
-  background: var(--bg-screen);
 }
 
 .message-row {
@@ -163,10 +165,10 @@ input {
 }
 
 .message-bubble {
-  max-width: min(78%, 350px);
+  max-width: min(78%, 330px);
   padding: 10px 16px 11px;
   border-radius: 22px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.4;
   letter-spacing: 0.01em;
   white-space: pre-line;
@@ -195,18 +197,18 @@ input {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 8px 14px 12px 14px;
+  padding: 8px 12px 10px;
   background: rgba(255, 255, 255, 0.06);
   border-top: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 .add-btn {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border: none;
   background: transparent;
   color: #1a1d20;
-  font-size: 42px;
+  font-size: 40px;
   line-height: 1;
   display: flex;
   justify-content: center;
@@ -224,8 +226,8 @@ input {
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 28px;
-  min-height: 44px;
-  padding: 0 8px 0 18px;
+  min-height: 42px;
+  padding: 0 8px 0 16px;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.01);
 }
 
@@ -236,7 +238,8 @@ input {
   outline: none;
   background: transparent;
   color: #1b1b1f;
-  font-size: 15px;
+  font-size: 16px;
+  line-height: 1.2;
   padding: 11px 0;
 }
 
@@ -251,7 +254,7 @@ input {
   border: none;
   background: transparent;
   color: #5d5f65;
-  font-size: 28px;
+  font-size: 26px;
   line-height: 1;
   display: flex;
   align-items: center;
@@ -276,25 +279,79 @@ input {
   border: 0;
 }
 
-@media (max-width: 440px) {
+@media (max-width: 767px) {
+  body {
+    background: var(--bg-app);
+  }
+
+  .app-shell {
+    width: 100vw;
+    min-height: 100dvh;
+  }
+
   .phone-screen {
+    width: 100vw;
     max-width: 100vw;
+    min-height: 100dvh;
+    height: 100dvh;
+  }
+
+  .topbar {
+    min-height: 180px;
+    padding-top: 10px;
   }
 
   .nav-btn {
-    width: 54px;
-    height: 54px;
-    font-size: 42px;
+    width: 50px;
+    height: 50px;
+    font-size: 36px;
     left: 14px;
+    top: 10px;
+  }
+
+  .avatar-wrap {
+    margin-top: 4px;
   }
 
   .avatar-ring {
-    width: 112px;
-    height: 112px;
+    width: clamp(120px, 33vw, 160px);
+    height: clamp(120px, 33vw, 160px);
   }
 
   .balance-badge {
-    min-width: 110px;
-    font-size: 23px;
+    min-width: 92px;
+    border-radius: 12px;
+    font-size: clamp(13px, 3vw, 22px);
+    padding: 8px 14px 9px;
+  }
+
+  .messages {
+    padding: 18px 12px 12px;
+    gap: 10px;
+  }
+
+  .message-bubble {
+    font-size: 16px;
+    max-width: 78%;
+  }
+
+  .composer {
+    padding: 8px 10px 10px;
+  }
+
+  .add-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 36px;
+  }
+
+  .composer-form {
+    min-height: 40px;
+    padding-left: 14px;
+  }
+
+  #board-input,
+  #board-input::placeholder {
+    font-size: 16px;
   }
 }

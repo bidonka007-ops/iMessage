@@ -1,6 +1,6 @@
 {
-  "name": "Ticket SMS",
-  "short_name": "Ticket",
+  "name": "iMessage",
+  "short_name": "iMessage",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#efeff1",

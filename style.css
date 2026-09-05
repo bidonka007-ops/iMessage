@@ -9,7 +9,7 @@
   --composer-border: rgba(0, 0, 0, 0.02);
   --placeholder: #7d8088;
   --icon: #1a1a1d;
-  --phone-width: 414px;
+  --phone-width: 420px;
 }
 
 * {
@@ -66,22 +66,22 @@ input {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 8px 14px 0;
-  min-height: 105px; /* Еще немного увеличили шапку */
+  padding: 10px 16px 0;
+  min-height: 115px;
   background: var(--bg-screen);
 }
 
 .nav-btn {
   position: absolute;
-  left: 14px;
-  top: 12px;
-  width: 38px; /* Сделали кнопку назад крупнее */
-  height: 38px;
+  left: 16px;
+  top: 14px;
+  width: 42px;
+  height: 42px;
   border: none;
   background: rgba(255, 255, 255, 0.85);
   border-radius: 50%;
   color: #18191d;
-  font-size: 28px;
+  font-size: 30px;
   line-height: 1;
   display: flex;
   align-items: center;
@@ -100,8 +100,8 @@ input {
 }
 
 .avatar-ring {
-  width: 64px; /* Заметно увеличили аватарку */
-  height: 64px; 
+  width: 72px;
+  height: 72px; 
   border-radius: 50%;
   background: linear-gradient(135deg, #a8b8d1 0%, #8ea1c8 100%);
   box-shadow: none;
@@ -125,7 +125,7 @@ input {
 
 .balance-badge {
   position: absolute;
-  bottom: -10px; 
+  bottom: -11px; 
   left: 50%;
   transform: translateX(-50%);
   min-width: unset; 
@@ -135,19 +135,19 @@ input {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   text-align: center;
   font-weight: 600;
-  font-size: 13px; /* Увеличили текст баланса */
+  font-size: 14px;
   line-height: 1.1;
   color: #1f2127;
-  padding: 4px 10px;
+  padding: 5px 12px;
 }
 
 .messages {
   flex: 1;
   overflow-y: auto;
-  padding: 22px 16px 16px;
+  padding: 24px 18px 18px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   background: var(--bg-screen);
   scroll-behavior: smooth;
 }
@@ -167,10 +167,10 @@ input {
 }
 
 .message-bubble {
-  max-width: min(85%, 310px);
-  padding: 12px 16px 13px; /* Еще увеличили внутренние отступы бабблов */
-  border-radius: 22px;
-  font-size: 17px; /* Увеличили текст сообщений */
+  max-width: min(88%, 330px);
+  padding: 14px 18px 15px;
+  border-radius: 24px;
+  font-size: 18px;
   line-height: 1.4;
   letter-spacing: 0.01em;
   white-space: pre-line;
@@ -196,19 +196,19 @@ input {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 14px 14px;
+  gap: 12px;
+  padding: 12px 16px 16px;
   background: rgba(255, 255, 255, 0.06);
   border-top: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 .add-btn {
-  width: 36px; /* Увеличили кнопку плюса */
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border: none;
   background: transparent;
   color: #1a1d20;
-  font-size: 36px;
+  font-size: 40px;
   line-height: 1;
   display: flex;
   justify-content: center;
@@ -221,12 +221,12 @@ input {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 26px;
-  min-height: 48px; /* Увеличили высоту поля ввода */
-  padding: 0 10px 0 16px;
+  border-radius: 28px;
+  min-height: 52px;
+  padding: 0 12px 0 18px;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.01);
 }
 
@@ -237,23 +237,23 @@ input {
   outline: none;
   background: transparent;
   color: #1b1b1f;
-  font-size: 17px; /* Увеличили шрифт ввода текста */
+  font-size: 18px;
   line-height: 1.2;
   padding: 8px 0;
 }
 
 #board-input::placeholder {
   color: var(--placeholder);
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .send-btn {
-  width: 30px; /* Увеличили кнопку отправки */
-  height: 30px;
+  width: 34px;
+  height: 34px;
   border: none;
   background: transparent;
   color: #5d5f65;
-  font-size: 24px;
+  font-size: 26px;
   line-height: 1;
   display: flex;
   align-items: center;
@@ -288,9 +288,8 @@ input {
     max-width: 100vw;
   }
 
-  /* 16px предотвращают автоматический зум экрана на iOS при клике */
   #board-input,
   #board-input::placeholder {
-    font-size: 16px;
+    font-size: 18px;
   }
 }

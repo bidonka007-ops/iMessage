@@ -1,15 +1,15 @@
-// iMessage-style chat mock for public transport ticket purchase.
-// The app accepts only a numeric bus/board number, sends it as a blue message,
-// then automatically returns a system message with the generated ticket data.
-
 const form = document.getElementById('message-form');
 const input = document.getElementById('board-input');
 const messages = document.getElementById('messages');
+
+// Инициализируем массив для хранения истории из localStorage
+let chatHistory = JSON.parse(localStorage.getItem('imessage_history')) || [];
 
 function scrollToBottom() {
   messages.scrollTop = messages.scrollHeight;
 }
 
+// Функция только для отрисовки сообщения в интерфейсе
 function createMessageRow(text, type) {
   const row = document.createElement('div');
   row.className = `message-row ${type}`;
@@ -21,6 +21,25 @@ function createMessageRow(text, type) {
   row.appendChild(bubble);
   messages.appendChild(row);
   scrollToBottom();
+}
+
+// Новая функция для сохранения сообщения в память браузера
+function saveMessage(text, type) {
+  chatHistory.push({ text, type });
+  localStorage.setItem('imessage_history', JSON.stringify(chatHistory));
+}
+
+// Функция для загрузки истории при открытии страницы
+function loadHistory() {
+  if (chatHistory.length > 0) {
+    // Если история есть, отрисовываем все сохраненные сообщения
+    chatHistory.forEach(msg => {
+      createMessageRow(msg.text, msg.type);
+    });
+  } else {
+    // Если истории нет, показываем демо-сообщение и сразу сохраняем его
+    renderDemoConversation();
+  }
 }
 
 function sanitizeBoardNumber(value) {
@@ -62,9 +81,12 @@ function buildSystemReply(boardNumber, overrideDate = null) {
 function renderDemoConversation() {
   const boardNumber = '1234';
   createMessageRow(boardNumber, 'outgoing');
+  saveMessage(boardNumber, 'outgoing'); // Сохраняем демо-сообщение
 
   const demoDate = new Date(2026, 8, 5, 12, 15);
-  createMessageRow(buildSystemReply(boardNumber, demoDate), 'incoming');
+  const reply = buildSystemReply(boardNumber, demoDate);
+  createMessageRow(reply, 'incoming');
+  saveMessage(reply, 'incoming'); // Сохраняем демо-ответ
 }
 
 function sendMessage() {
@@ -79,10 +101,13 @@ function sendMessage() {
 
   // User's message: blue bubble with only the board number.
   createMessageRow(boardNumber, 'outgoing');
+  saveMessage(boardNumber, 'outgoing'); // Сохраняем отправленный номер
 
   // Simulate a small operator/system response delay.
   window.setTimeout(() => {
-    createMessageRow(buildSystemReply(boardNumber), 'incoming');
+    const reply = buildSystemReply(boardNumber);
+    createMessageRow(reply, 'incoming');
+    saveMessage(reply, 'incoming'); // Сохраняем полученный билет
   }, 700);
 
   input.value = '';
@@ -109,4 +134,5 @@ input.addEventListener('keydown', (event) => {
   }
 });
 
-renderDemoConversation();
+// Запускаем загрузку истории при старте скрипта
+loadHistory();

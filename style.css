@@ -95,8 +95,8 @@ input {
 }
 
 .avatar-ring {
-  width: 90px;
-  height: 90px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: linear-gradient(135deg, #a8b8d1 0%, #8ea1c8 100%);
   box-shadow: none;
@@ -118,16 +118,16 @@ input {
 
 .balance-badge {
   position: absolute;
-  bottom: -16px;
+  bottom: -24px;
   left: 50%;
   transform: translateX(-50%);
-  min-width: 116px;
+  min-width: 50px;
   background: rgba(255, 255, 255, 0.84);
-  border-radius: 18px;
+  border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
   text-align: center;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 9px;
   line-height: 1;
   color: #1f2127;
   padding: 8px 18px 10px;

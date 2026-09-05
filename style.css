@@ -9,7 +9,7 @@
   --composer-border: rgba(0, 0, 0, 0.02);
   --placeholder: #7d8088;
   --icon: #1a1a1d;
-  --phone-width: 11520px;
+  --phone-width: 46080px;
 }
 
 * {
@@ -66,27 +66,27 @@ input {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 256px 384px 0;
-  min-height: 2880px;
+  padding: 1024px 1536px 0;
+  min-height: 11520px;
   background: var(--bg-screen);
 }
 
 .nav-btn {
   position: absolute;
-  left: 384px;
-  top: 320px;
-  width: 1024px;
-  height: 1024px;
+  left: 1536px;
+  top: 1280px;
+  width: 4096px;
+  height: 4096px;
   border: none;
   background: rgba(255, 255, 255, 0.85);
   border-radius: 50%;
   color: #18191d;
-  font-size: 704px;
+  font-size: 2816px;
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 32px 96px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 128px 384px rgba(0, 0, 0, 0.04);
   cursor: pointer;
   padding: 0;
 }
@@ -96,12 +96,12 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 64px;
+  margin-top: 256px;
 }
 
 .avatar-ring {
-  width: 1792px;
-  height: 1792px; 
+  width: 7168px;
+  height: 7168px; 
   border-radius: 50%;
   background: linear-gradient(135deg, #a8b8d1 0%, #8ea1c8 100%);
   box-shadow: none;
@@ -125,29 +125,29 @@ input {
 
 .balance-badge {
   position: absolute;
-  bottom: -288px; 
+  bottom: -1152px; 
   left: 50%;
   transform: translateX(-50%);
   min-width: unset; 
   white-space: nowrap;
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 320px;
-  box-shadow: 0 32px 128px rgba(0, 0, 0, 0.08);
+  border-radius: 1280px;
+  box-shadow: 0 128px 512px rgba(0, 0, 0, 0.08);
   text-align: center;
   font-weight: 600;
-  font-size: 352px;
+  font-size: 1408px;
   line-height: 1.1;
   color: #1f2127;
-  padding: 128px 320px;
+  padding: 512px 1280px;
 }
 
 .messages {
   flex: 1;
   overflow-y: auto;
-  padding: 512px 384px 384px;
+  padding: 2048px 1536px 1536px;
   display: flex;
   flex-direction: column;
-  gap: 320px;
+  gap: 1280px;
   background: var(--bg-screen);
   scroll-behavior: smooth;
 }
@@ -159,7 +159,7 @@ input {
 
 .message-row.outgoing {
   justify-content: flex-end;
-  margin-top: 64px;
+  margin-top: 256px;
 }
 
 .message-row.incoming {
@@ -167,10 +167,10 @@ input {
 }
 
 .message-bubble {
-  max-width: min(92%, 8320px);
-  padding: 352px 448px 384px;
-  border-radius: 576px;
-  font-size: 448px;
+  max-width: min(92%, 33280px);
+  padding: 1408px 1792px 1536px;
+  border-radius: 2304px;
+  font-size: 1792px;
   line-height: 1.4;
   letter-spacing: 0.01em;
   white-space: pre-line;
@@ -180,14 +180,14 @@ input {
 .message-row.outgoing .message-bubble {
   background: linear-gradient(180deg, #3aa6ff, var(--bubble-user));
   color: #ffffff;
-  border-bottom-right-radius: 192px;
+  border-bottom-right-radius: 768px;
   box-shadow: none;
 }
 
 .message-row.incoming .message-bubble {
   background: var(--bubble-system);
   color: var(--bubble-text);
-  border-bottom-left-radius: 192px;
+  border-bottom-left-radius: 768px;
   box-shadow: none;
   font-weight: 400;
 }
@@ -196,19 +196,19 @@ input {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 320px;
-  padding: 320px 384px 384px;
+  gap: 1280px;
+  padding: 1280px 1536px 1536px;
   background: rgba(255, 255, 255, 0.06);
   border-top: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 .add-btn {
-  width: 1024px;
-  height: 1024px;
+  width: 4096px;
+  height: 4096px;
   border: none;
   background: transparent;
   color: #1a1d20;
-  font-size: 1024px;
+  font-size: 4096px;
   line-height: 1;
   display: flex;
   justify-content: center;
@@ -221,12 +221,12 @@ input {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 256px;
+  gap: 1024px;
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 640px;
-  min-height: 1280px;
-  padding: 0 320px 0 448px;
+  border-radius: 2560px;
+  min-height: 5120px;
+  padding: 0 1280px 0 1792px;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.01);
 }
 
@@ -237,23 +237,23 @@ input {
   outline: none;
   background: transparent;
   color: #1b1b1f;
-  font-size: 448px;
+  font-size: 1792px;
   line-height: 1.2;
-  padding: 192px 0;
+  padding: 768px 0;
 }
 
 #board-input::placeholder {
   color: var(--placeholder);
-  font-size: 448px;
+  font-size: 1792px;
 }
 
 .send-btn {
-  width: 896px;
-  height: 896px;
+  width: 3584px;
+  height: 3584px;
   border: none;
   background: transparent;
   color: #5d5f65;
-  font-size: 640px;
+  font-size: 2560px;
   line-height: 1;
   display: flex;
   align-items: center;
@@ -290,7 +290,6 @@ input {
 
   #board-input,
   #board-input::placeholder {
-    font-size: 448px;
+    font-size: 1792px;
   }
-  }
-  
+}

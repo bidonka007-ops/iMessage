@@ -80,17 +80,6 @@ function buildSystemReply(boardNumber, overrideDate = null) {
   ].join('\n');
 }
 
-function renderDemoConversation() {
-  const boardNumber = '1234';
-  createMessageRow(boardNumber, 'outgoing');
-  saveMessage(boardNumber, 'outgoing'); // Сохраняем демо-сообщение
-
-  const demoDate = new Date(2026, 8, 5, 12, 15);
-  const reply = buildSystemReply(boardNumber, demoDate);
-  createMessageRow(reply, 'incoming');
-  saveMessage(reply, 'incoming'); // Сохраняем демо-ответ
-}
-
 function sendMessage() {
   const rawValue = input.value.trim();
   const boardNumber = sanitizeBoardNumber(rawValue);

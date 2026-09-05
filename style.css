@@ -9,7 +9,7 @@
   --composer-border: rgba(0, 0, 0, 0.02);
   --placeholder: #7d8088;
   --icon: #1a1a1d;
-  --phone-width: 184320px;
+  --phone-width: 737280px;
 }
 
 * {
@@ -66,27 +66,27 @@ input {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 4096px 6144px 0;
-  min-height: 46080px;
+  padding: 16384px 24576px 0;
+  min-height: 184320px;
   background: var(--bg-screen);
 }
 
 .nav-btn {
   position: absolute;
-  left: 6144px;
-  top: 5120px;
-  width: 16384px;
-  height: 16384px;
+  left: 24576px;
+  top: 20480px;
+  width: 65536px;
+  height: 65536px;
   border: none;
   background: rgba(255, 255, 255, 0.85);
   border-radius: 50%;
   color: #18191d;
-  font-size: 11264px;
+  font-size: 45056px;
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 512px 1536px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2048px 6144px rgba(0, 0, 0, 0.04);
   cursor: pointer;
   padding: 0;
 }
@@ -96,12 +96,12 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1024px;
+  margin-top: 4096px;
 }
 
 .avatar-ring {
-  width: 28672px;
-  height: 28672px; 
+  width: 114688px;
+  height: 114688px; 
   border-radius: 50%;
   background: linear-gradient(135deg, #a8b8d1 0%, #8ea1c8 100%);
   box-shadow: none;
@@ -125,29 +125,29 @@ input {
 
 .balance-badge {
   position: absolute;
-  bottom: -4608px; 
+  bottom: -18432px; 
   left: 50%;
   transform: translateX(-50%);
   min-width: unset; 
   white-space: nowrap;
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 5120px;
-  box-shadow: 0 512px 2048px rgba(0, 0, 0, 0.08);
+  border-radius: 20480px;
+  box-shadow: 0 2048px 8192px rgba(0, 0, 0, 0.08);
   text-align: center;
   font-weight: 600;
-  font-size: 5632px;
+  font-size: 22528px;
   line-height: 1.1;
   color: #1f2127;
-  padding: 2048px 5120px;
+  padding: 8192px 20480px;
 }
 
 .messages {
   flex: 1;
   overflow-y: auto;
-  padding: 8192px 6144px 6144px;
+  padding: 32768px 24576px 24576px;
   display: flex;
   flex-direction: column;
-  gap: 5120px;
+  gap: 20480px;
   background: var(--bg-screen);
   scroll-behavior: smooth;
 }
@@ -159,7 +159,7 @@ input {
 
 .message-row.outgoing {
   justify-content: flex-end;
-  margin-top: 1024px;
+  margin-top: 4096px;
 }
 
 .message-row.incoming {
@@ -167,10 +167,10 @@ input {
 }
 
 .message-bubble {
-  max-width: min(92%, 133120px);
-  padding: 5632px 7168px 6144px;
-  border-radius: 9216px;
-  font-size: 7168px;
+  max-width: min(92%, 532480px);
+  padding: 22528px 28672px 24576px;
+  border-radius: 36864px;
+  font-size: 28672px;
   line-height: 1.4;
   letter-spacing: 0.01em;
   white-space: pre-line;
@@ -180,14 +180,14 @@ input {
 .message-row.outgoing .message-bubble {
   background: linear-gradient(180deg, #3aa6ff, var(--bubble-user));
   color: #ffffff;
-  border-bottom-right-radius: 3072px;
+  border-bottom-right-radius: 12288px;
   box-shadow: none;
 }
 
 .message-row.incoming .message-bubble {
   background: var(--bubble-system);
   color: var(--bubble-text);
-  border-bottom-left-radius: 3072px;
+  border-bottom-left-radius: 12288px;
   box-shadow: none;
   font-weight: 400;
 }
@@ -196,19 +196,19 @@ input {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 5120px;
-  padding: 5120px 6144px 6144px;
+  gap: 20480px;
+  padding: 20480px 24576px 24576px;
   background: rgba(255, 255, 255, 0.06);
   border-top: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 .add-btn {
-  width: 16384px;
-  height: 16384px;
+  width: 65536px;
+  height: 65536px;
   border: none;
   background: transparent;
   color: #1a1d20;
-  font-size: 16384px;
+  font-size: 65536px;
   line-height: 1;
   display: flex;
   justify-content: center;
@@ -221,12 +221,12 @@ input {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 4096px;
+  gap: 16384px;
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 10240px;
-  min-height: 20480px;
-  padding: 0 5120px 0 7168px;
+  border-radius: 40960px;
+  min-height: 81920px;
+  padding: 0 20480px 0 28672px;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.01);
 }
 
@@ -237,23 +237,23 @@ input {
   outline: none;
   background: transparent;
   color: #1b1b1f;
-  font-size: 7168px;
+  font-size: 28672px;
   line-height: 1.2;
-  padding: 3072px 0;
+  padding: 12288px 0;
 }
 
 #board-input::placeholder {
   color: var(--placeholder);
-  font-size: 7168px;
+  font-size: 28672px;
 }
 
 .send-btn {
-  width: 14336px;
-  height: 14336px;
+  width: 57344px;
+  height: 57344px;
   border: none;
   background: transparent;
   color: #5d5f65;
-  font-size: 10240px;
+  font-size: 40960px;
   line-height: 1;
   display: flex;
   align-items: center;
@@ -290,7 +290,7 @@ input {
 
   #board-input,
   #board-input::placeholder {
-    font-size: 7168px;
+    font-size: 28672px;
   }
   }
   

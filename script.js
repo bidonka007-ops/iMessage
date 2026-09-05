@@ -43,7 +43,9 @@ function loadHistory() {
 }
 
 function sanitizeBoardNumber(value) {
-  return value.replace(/\D/g, '').slice(0, 6);
+  // Разрешаем вводить цифры, убрали жесткое ограничение в 6 символов, 
+  // чтобы пользователь мог ввести 5 цифр (и не получить билет из-за ошибки).
+  return value.replace(/\D/g, '');
 }
 
 function formatDate(date) {
@@ -99,16 +101,22 @@ function sendMessage() {
     return;
   }
 
-  // User's message: blue bubble with only the board number.
+  // Пользователь отправляет сообщение (синий баббл) в любом случае
   createMessageRow(boardNumber, 'outgoing');
   saveMessage(boardNumber, 'outgoing'); // Сохраняем отправленный номер
 
-  // Simulate a small operator/system response delay.
-  window.setTimeout(() => {
-    const reply = buildSystemReply(boardNumber);
-    createMessageRow(reply, 'incoming');
-    saveMessage(reply, 'incoming'); // Сохраняем полученный билет
-  }, 700);
+  // ЛОГИКА ВЫДАЧИ БИЛЕТА: 
+  // Билет выдается ТОЛЬКО если длина номера равна ровно 4 цифрам.
+  // Если введено 3 цифры ("123") или 5 цифр ("12345") - ответа от системы не будет.
+  // Чтобы получить билет для "123", нужно ввести "0123" (длина станет 4).
+  if (boardNumber.length === 4) {
+    // Simulate a small operator/system response delay.
+    window.setTimeout(() => {
+      const reply = buildSystemReply(boardNumber);
+      createMessageRow(reply, 'incoming');
+      saveMessage(reply, 'incoming'); // Сохраняем полученный билет
+    }, 700);
+  }
 
   input.value = '';
   input.placeholder = 'Текстовое сообщение • SMS';

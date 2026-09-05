@@ -9,7 +9,7 @@
   --composer-border: rgba(0, 0, 0, 0.02);
   --placeholder: #7d8088;
   --icon: #1a1a1d;
-  --phone-width: 1440px;
+  --phone-width: 2880px;
 }
 
 * {
@@ -66,27 +66,27 @@ input {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 32px 48px 0;
-  min-height: 360px;
+  padding: 64px 96px 0;
+  min-height: 720px;
   background: var(--bg-screen);
 }
 
 .nav-btn {
   position: absolute;
-  left: 48px;
-  top: 40px;
-  width: 128px;
-  height: 128px;
+  left: 96px;
+  top: 80px;
+  width: 256px;
+  height: 256px;
   border: none;
   background: rgba(255, 255, 255, 0.85);
   border-radius: 50%;
   color: #18191d;
-  font-size: 88px;
+  font-size: 176px;
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
   cursor: pointer;
   padding: 0;
 }
@@ -96,12 +96,12 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .avatar-ring {
-  width: 224px;
-  height: 224px; 
+  width: 448px;
+  height: 448px; 
   border-radius: 50%;
   background: linear-gradient(135deg, #a8b8d1 0%, #8ea1c8 100%);
   box-shadow: none;
@@ -125,29 +125,29 @@ input {
 
 .balance-badge {
   position: absolute;
-  bottom: -36px; 
+  bottom: -72px; 
   left: 50%;
   transform: translateX(-50%);
   min-width: unset; 
   white-space: nowrap;
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 40px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 80px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   text-align: center;
   font-weight: 600;
-  font-size: 44px;
+  font-size: 88px;
   line-height: 1.1;
   color: #1f2127;
-  padding: 16px 40px;
+  padding: 32px 80px;
 }
 
 .messages {
   flex: 1;
   overflow-y: auto;
-  padding: 64px 48px 48px;
+  padding: 128px 96px 96px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 80px;
   background: var(--bg-screen);
   scroll-behavior: smooth;
 }
@@ -159,7 +159,7 @@ input {
 
 .message-row.outgoing {
   justify-content: flex-end;
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .message-row.incoming {
@@ -167,10 +167,10 @@ input {
 }
 
 .message-bubble {
-  max-width: min(92%, 1040px);
-  padding: 44px 56px 48px;
-  border-radius: 72px;
-  font-size: 56px;
+  max-width: min(92%, 2080px);
+  padding: 88px 112px 96px;
+  border-radius: 144px;
+  font-size: 112px;
   line-height: 1.4;
   letter-spacing: 0.01em;
   white-space: pre-line;
@@ -180,14 +180,14 @@ input {
 .message-row.outgoing .message-bubble {
   background: linear-gradient(180deg, #3aa6ff, var(--bubble-user));
   color: #ffffff;
-  border-bottom-right-radius: 24px;
+  border-bottom-right-radius: 48px;
   box-shadow: none;
 }
 
 .message-row.incoming .message-bubble {
   background: var(--bubble-system);
   color: var(--bubble-text);
-  border-bottom-left-radius: 24px;
+  border-bottom-left-radius: 48px;
   box-shadow: none;
   font-weight: 400;
 }
@@ -196,19 +196,19 @@ input {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 40px;
-  padding: 40px 48px 48px;
+  gap: 80px;
+  padding: 80px 96px 96px;
   background: rgba(255, 255, 255, 0.06);
   border-top: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 .add-btn {
-  width: 128px;
-  height: 128px;
+  width: 256px;
+  height: 256px;
   border: none;
   background: transparent;
   color: #1a1d20;
-  font-size: 128px;
+  font-size: 256px;
   line-height: 1;
   display: flex;
   justify-content: center;
@@ -221,12 +221,12 @@ input {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 64px;
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 80px;
-  min-height: 160px;
-  padding: 0 40px 0 56px;
+  border-radius: 160px;
+  min-height: 320px;
+  padding: 0 80px 0 112px;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.01);
 }
 
@@ -237,23 +237,23 @@ input {
   outline: none;
   background: transparent;
   color: #1b1b1f;
-  font-size: 56px;
+  font-size: 112px;
   line-height: 1.2;
-  padding: 24px 0;
+  padding: 48px 0;
 }
 
 #board-input::placeholder {
   color: var(--placeholder);
-  font-size: 56px;
+  font-size: 112px;
 }
 
 .send-btn {
-  width: 112px;
-  height: 112px;
+  width: 224px;
+  height: 224px;
   border: none;
   background: transparent;
   color: #5d5f65;
-  font-size: 80px;
+  font-size: 160px;
   line-height: 1;
   display: flex;
   align-items: center;
@@ -290,7 +290,7 @@ input {
 
   #board-input,
   #board-input::placeholder {
-    font-size: 56px;
+    font-size: 112px;
   }
   }
-  
+

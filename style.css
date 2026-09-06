@@ -9,7 +9,7 @@
   --composer-border: rgba(0, 0, 0, 0.02);
   --placeholder: #7d8088;
   --icon: #1a1a1d;
-  --scale-factor: 2.5; /* Коэффициент увеличения интерфейса */
+  --scale-factor: 5; /* Коэффициент увеличения интерфейса */
 }
 
 * {

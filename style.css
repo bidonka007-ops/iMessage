@@ -5,11 +5,11 @@
   --bubble-user: #1f9bf6;
   --bubble-system: #e7e7ea;
   --bubble-text: #1d1d20;
+  --composer-bg: rgba(255, 255, 255, 0.72);
+  --composer-border: rgba(0, 0, 0, 0.02);
   --placeholder: #7d8088;
-}
-
-html {
-  font-size: 16px; 
+  --icon: #1a1a1d;
+  --phone-width: 440px; /* Максимальная ширина для десктопа */
 }
 
 * {
@@ -24,71 +24,72 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--bg-app);
   color: var(--header-text);
-  overflow: auto; 
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 1rem;
+  overflow-x: hidden;
 }
 
-/* Контейнер приложения */
+button,
+input {
+  font: inherit;
+}
+
 .app-shell {
+  width: 100%;
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  width: 100%;
+  background: var(--bg-app);
 }
 
-/* Экран телефона */
 .phone-screen {
   position: relative;
-  width: 22.5rem; 
-  min-height: 46.25rem; 
+  /* На телефоне займет 100% экрана, на ПК - максимум 440px */
+  width: min(100vw, var(--phone-width));
+  max-width: var(--phone-width);
+  min-height: 100dvh;
   background: var(--bg-screen);
   display: flex;
   flex-direction: column;
-  border-radius: 2rem;
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
-  
-  /* ==========================================================
-     УМЕНЬШЕНИЕ В 2 РАЗА:
-     scale(0.5) = интерфейс в 2 раза меньше (50%)
-     ========================================================== */
-  transform: scale(0.5);
-  transform-origin: top center;
 }
 
-/* Шапка */
 .topbar {
   position: relative;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 1rem 1.5rem 0;
-  min-height: 11.25rem;
+  padding: 16px 24px 0;
+  min-height: 180px;
   background: var(--bg-screen);
 }
 
 .nav-btn {
   position: absolute;
-  left: 1.5rem;
-  top: 1.25rem;
-  width: 2.5rem;
-  height: 2.5rem;
+  left: 24px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
   border: none;
   background: rgba(255, 255, 255, 0.85);
   border-radius: 50%;
   color: #18191d;
-  font-size: 1.5rem;
+  font-size: 24px;
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   cursor: pointer;
+  padding: 0;
 }
 
 .avatar-wrap {
@@ -96,50 +97,59 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0.25rem;
+  margin-top: 4px;
 }
 
 .avatar-ring {
-  width: 7rem;
-  height: 7rem; 
+  width: 112px;
+  height: 112px; 
   border-radius: 50%;
   background: linear-gradient(135deg, #a8b8d1 0%, #8ea1c8 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border: 0;
 }
 
 .avatar-image {
   width: 110%;
   height: 110%;
+  display: block;
   object-fit: cover;
+  object-position: center;
+  background: linear-gradient(135deg, #a8b8d1 0%, #8ea1c8 100%);
 }
 
 .balance-badge {
   position: absolute;
-  bottom: -1.125rem; 
+  bottom: -18px; 
   left: 50%;
   transform: translateX(-50%);
+  min-width: unset; 
   white-space: nowrap;
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 1.25rem;
-  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: center;
   font-weight: 600;
-  font-size: 1.375rem;
+  font-size: 22px;
+  line-height: 1.1;
   color: #1f2127;
-  padding: 0.5rem 1.25rem;
+  padding: 8px 20px;
 }
 
-/* Сообщения */
 .messages {
   flex: 1;
   overflow-y: auto;
-  padding: 2rem 1.5rem 1.5rem;
+  padding: 32px 24px 24px;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 20px;
   background: var(--bg-screen);
+  scroll-behavior: smooth;
 }
 
 .message-row {
@@ -149,6 +159,7 @@ body {
 
 .message-row.outgoing {
   justify-content: flex-end;
+  margin-top: 4px;
 }
 
 .message-row.incoming {
@@ -157,72 +168,123 @@ body {
 
 .message-bubble {
   max-width: 85%;
-  padding: 0.875rem 1.125rem;
-  border-radius: 1.25rem;
-  font-size: 1rem;
+  padding: 14px 18px;
+  border-radius: 20px;
+  font-size: 16px;
   line-height: 1.4;
+  letter-spacing: 0.01em;
+  white-space: pre-line;
   word-break: break-word;
 }
 
 .message-row.outgoing .message-bubble {
   background: linear-gradient(180deg, #3aa6ff, var(--bubble-user));
   color: #ffffff;
-  border-bottom-right-radius: 0.375rem;
+  border-bottom-right-radius: 6px;
+  box-shadow: none;
 }
 
 .message-row.incoming .message-bubble {
   background: var(--bubble-system);
   color: var(--bubble-text);
-  border-bottom-left-radius: 0.375rem;
+  border-bottom-left-radius: 6px;
+  box-shadow: none;
+  font-weight: 400;
 }
 
-/* Форма ввода */
 .composer {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.5rem;
+  gap: 16px;
+  padding: 16px 24px;
   background: rgba(255, 255, 255, 0.06);
   border-top: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 .add-btn {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 40px;
+  height: 40px;
   border: none;
   background: transparent;
   color: #1a1d20;
-  font-size: 2rem;
+  font-size: 32px;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
+  padding: 0;
 }
 
 .composer-form {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 12px;
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 1.5rem;
-  height: 3rem;
-  padding: 0 1rem;
+  border-radius: 24px;
+  min-height: 48px;
+  padding: 0 16px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.01);
 }
 
 #board-input {
   flex: 1;
+  min-width: 0;
   border: none;
   outline: none;
   background: transparent;
   color: #1b1b1f;
-  font-size: 1rem;
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 12px 0;
+}
+
+#board-input::placeholder {
+  color: var(--placeholder);
+  font-size: 16px;
 }
 
 .send-btn {
-  width: 2rem;
-  height: 2rem;
+  width: 32px;
+  height: 32px;
   border: none;
   background: transparent;
   color: #5d5f65;
-  font-size: 1.25rem;
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  padding: 0;
+}
+
+.send-btn:hover {
+  color: #1f2127;
+}
+
+/* Оптимизация под совсем узкие экраны телефонов */
+@media (max-width: 380px) {
+  .topbar {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .nav-btn {
+    left: 16px;
+  }
+  
+  .messages {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .composer {
+    padding-left: 16px;
+    padding-right: 16px;
+    gap: 8px;
+  }
 }

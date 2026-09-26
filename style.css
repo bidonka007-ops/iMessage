@@ -1,14 +1,3 @@
-/* ============================================================
-   ГЛАВНЫЙ РЕГУЛЯТОР МАСШТАБА:
-   16px = стандартный размер (100%)
-   24px = увеличение в 1.5 раза (150%)
-   32px = увеличение в 2 раза (200%)
-   48px = увеличение в 3 раза (300%)
-   ============================================================ */
-html {
-  font-size: 48px; /* <-- Изменяйте ТОЛЬКО это значение для масштабирования */
-}
-
 :root {
   --bg-app: #efeff1;
   --bg-screen: #f3f3f5;
@@ -17,6 +6,11 @@ html {
   --bubble-system: #e7e7ea;
   --bubble-text: #1d1d20;
   --placeholder: #7d8088;
+}
+
+/* Возвращаем стандартный размер, чтобы браузер не ломал верстку */
+html {
+  font-size: 16px; 
 }
 
 * {
@@ -31,6 +25,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--bg-app);
   color: var(--header-text);
+  overflow: hidden; /* Убираем лишние скроллы */
 }
 
 body {
@@ -49,17 +44,26 @@ body {
   width: 100%;
 }
 
-/* Экран телефона — масштабируется пропорционально в rem */
+/* Экран телефона */
 .phone-screen {
   position: relative;
-  width: 22.5rem; /* ~360px при базовых 16px */
-  min-height: 46.25rem; /* ~740px при базовых 16px */
+  width: 22.5rem; 
+  min-height: 46.25rem; 
   background: var(--bg-screen);
   display: flex;
   flex-direction: column;
   border-radius: 2rem;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
   overflow: hidden;
+  
+  /* ==========================================================
+     ЭКСТРЕМАЛЬНОЕ УМЕНЬШЕНИЕ:
+     scale(0.1) = интерфейс в 10 раз меньше (10%)
+     scale(0.2) = интерфейс в 5 раз меньше (20%)
+     scale(0.5) = интерфейс в 2 раза меньше (50%)
+     ========================================================== */
+  transform: scale(0.1);
+  transform-origin: top center;
 }
 
 /* Шапка */
